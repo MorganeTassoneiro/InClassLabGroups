@@ -1,0 +1,89 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package classlab;
+
+/**
+ *
+ * @author xinyi 2021244
+ */
+public class Classlab {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        
+        // Assuming you have imported necessary libraries
+
+public class PlayerInformation {
+
+    private static final String DB_URL = "your_db_url";
+    private static final String USER = "your_db_user";
+    private static final String PASS = "your_db_password";
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String teamName = "your_team_name";
+        String name, birth, position, background;
+        int number, goalsScored;
+
+        do {
+            System.out.println("Please enter the player's name: ");
+            name = sc.nextLine();
+
+            System.out.println("Please enter the player's number: ");
+            number = sc.nextInt();
+            sc.nextLine(); // Consume the newline left in the buffer
+
+            System.out.println("Please enter the player's birthdate: ");
+            birth = sc.nextLine();
+
+            System.out.println("Please enter the player's position: ");
+            position = sc.nextLine();
+
+            System.out.println("Please enter the player's goals scored: ");
+            goalsScored = sc.nextInt();
+            sc.nextLine(); // Consume the newline left in the buffer
+
+            System.out.println("Please enter the player's background: ");
+            background = sc.nextLine();
+
+            System.out.println("Thank you for entering a player");
+
+        } while (!isValidPlayer(name, number, birth, position, goalsScored, background));
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             Statement stmt = conn.createStatement()) {
+
+            String sql = String.format("INSERT INTO %s (name, number, birth, position, goalsScored, background) "
+                            + "VALUES (\"%s\", %d, \"%s\", \"%s\", %d,  \"%s\") ;",
+                    teamName, name, number, birth, position, goalsScored, background);
+
+            stmt.execute(sql);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean isValidPlayer(String name, int number, String birth, String position,
+                                         int goalsScored, String background) {
+        // Add your validation logic here
+        // Return true if the player information is valid, otherwise false
+        return true; // Replace this with your validation
+    }
+}
+     
+        
+        
+        
+        
+    }
+    
+}
