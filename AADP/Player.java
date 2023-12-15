@@ -13,7 +13,7 @@ import java.sql.Statement;
  *
  * @author morga
  */
-public class PlayerInformation {
+public class Player {
     
     private static void displayPlayerData(Connection conn, String teamName) throws SQLException {
     Statement stmt = conn.createStatement();
@@ -39,8 +39,8 @@ public class PlayerInformation {
     // constructor, getters, and setters
 }
 
-    private PlayerInformation() {
+    Player() {
     }
-
-    
 }
+
+
